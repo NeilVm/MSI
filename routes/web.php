@@ -19,12 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+*/
+Route::get('/home', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 
-Route::get('/home', [HomeController::class, 'index'])->name('admin.home');
-Route::get('/admin', [HomeController::class, 'index'])->name('admin.home');
+
+
 
 
 
