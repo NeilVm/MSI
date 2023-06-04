@@ -2,127 +2,108 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatehojacontroldRequest;
-use App\Http\Requests\UpdatehojacontroldRequest;
-use App\Http\Controllers\AppBaseController;
-use App\Repositories\hojacontroldRepository;
+use App\Models\Hojacontrold;
 use Illuminate\Http\Request;
-use Flash;
 
-class hojacontroldController extends AppBaseController
+/**
+ * Class HojacontroldController
+ * @package App\Http\Controllers
+ */
+class HojacontroldController extends Controller
 {
-    /** @var hojacontroldRepository $hojacontroldRepository*/
-    private $hojacontroldRepository;
-
-    public function __construct(hojacontroldRepository $hojacontroldRepo)
-    {
-        $this->hojacontroldRepository = $hojacontroldRepo;
-    }
-
     /**
-     * Display a listing of the hojacontrold.
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $hojacontrolds = $this->hojacontroldRepository->paginate(10);
+        $hojacontrolds = Hojacontrold::paginate();
 
-        return view('hojacontrolds.index')
-            ->with('hojacontrolds', $hojacontrolds);
+        return view('hojacontrold.index', compact('hojacontrolds'))
+            ->with('i', (request()->input('page', 1) - 1) * $hojacontrolds->perPage());
     }
 
     /**
-     * Show the form for creating a new hojacontrold.
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('hojacontrolds.create');
+        $hojacontrold = new Hojacontrold();
+        return view('hojacontrold.create', compact('hojacontrold'));
     }
 
     /**
-     * Store a newly created hojacontrold in storage.
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(CreatehojacontroldRequest $request)
+    public function store(Request $request)
     {
-        $input = $request->all();
+        request()->validate(Hojacontrold::$rules);
 
-        $hojacontrold = $this->hojacontroldRepository->create($input);
+        $hojacontrold = Hojacontrold::create($request->all());
 
-        Flash::success('Hojacontrold saved successfully.');
-
-        return redirect(route('hojacontrolds.index'));
+        return redirect()->route('hojacontrolds.index')
+            ->with('success', 'Hojacontrold created successfully.');
     }
 
     /**
-     * Display the specified hojacontrold.
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $hojacontrold = $this->hojacontroldRepository->find($id);
+        $hojacontrold = Hojacontrold::find($id);
 
-        if (empty($hojacontrold)) {
-            Flash::error('Hojacontrold not found');
-
-            return redirect(route('hojacontrolds.index'));
-        }
-
-        return view('hojacontrolds.show')->with('hojacontrold', $hojacontrold);
+        return view('hojacontrold.show', compact('hojacontrold'));
     }
 
     /**
-     * Show the form for editing the specified hojacontrold.
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $hojacontrold = $this->hojacontroldRepository->find($id);
+        $hojacontrold = Hojacontrold::find($id);
 
-        if (empty($hojacontrold)) {
-            Flash::error('Hojacontrold not found');
-
-            return redirect(route('hojacontrolds.index'));
-        }
-
-        return view('hojacontrolds.edit')->with('hojacontrold', $hojacontrold);
+        return view('hojacontrold.edit', compact('hojacontrold'));
     }
 
     /**
-     * Update the specified hojacontrold in storage.
-     */
-    public function update($id, UpdatehojacontroldRequest $request)
-    {
-        $hojacontrold = $this->hojacontroldRepository->find($id);
-
-        if (empty($hojacontrold)) {
-            Flash::error('Hojacontrold not found');
-
-            return redirect(route('hojacontrolds.index'));
-        }
-
-        $hojacontrold = $this->hojacontroldRepository->update($request->all(), $id);
-
-        Flash::success('Hojacontrold updated successfully.');
-
-        return redirect(route('hojacontrolds.index'));
-    }
-
-    /**
-     * Remove the specified hojacontrold from storage.
+     * Update the specified resource in storage.
      *
+     * @param  \Illuminate\Http\Request $request
+     * @param  Hojacontrold $hojacontrold
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Hojacontrold $hojacontrold)
+    {
+        request()->validate(Hojacontrold::$rules);
+
+        $hojacontrold->update($request->all());
+
+        return redirect()->route('hojacontrolds.index')
+            ->with('success', 'Hojacontrold updated successfully');
+    }
+
+    /**
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
     public function destroy($id)
     {
-        $hojacontrold = $this->hojacontroldRepository->find($id);
+        $hojacontrold = Hojacontrold::find($id)->delete();
 
-        if (empty($hojacontrold)) {
-            Flash::error('Hojacontrold not found');
-
-            return redirect(route('hojacontrolds.index'));
-        }
-
-        $this->hojacontroldRepository->delete($id);
-
-        Flash::success('Hojacontrold deleted successfully.');
-
-        return redirect(route('hojacontrolds.index'));
+        return redirect()->route('hojacontrolds.index')
+            ->with('success', 'Hojacontrold deleted successfully');
     }
 }
