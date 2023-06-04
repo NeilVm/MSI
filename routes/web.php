@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HojacontroldController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -27,6 +28,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 Route::resource('hojacontrolds', HojacontroldController::class);
+Route::resource('users', UserController::class);
 
 
 
