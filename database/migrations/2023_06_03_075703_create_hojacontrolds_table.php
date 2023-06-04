@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('personal_iden');
             $table->string('epp');
             $table->string('cobertura_ser');
+            $table->string('usu');
             $table->timestamps();
         });
     }
