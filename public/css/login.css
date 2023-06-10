@@ -1,0 +1,17 @@
+
+body {
+    background-image: url("/images/san_isidro.jpg");
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+
+}
+#login-container {
+    background-color: transparent !important;
+}
+
+.card-header {
+    text-align: center;
+    color: aqua;
+    /* Agrega otros estilos según tus necesidades */
+  }

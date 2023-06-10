@@ -18,22 +18,16 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('home');
+Route::get('/css/login.css', function () {
+    return response(file_get_contents(public_path('css/login.css')), 200)
+        ->header('Content-Type', 'text/css');
 });
-*/
-/*Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-*/
+
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 Route::resource('hojacontrolds', HojacontroldController::class);
 Route::resource('users', UserController::class);
 Route::resource('t-penalidads', TPenalidadController::class);
-
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,4 +36,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
