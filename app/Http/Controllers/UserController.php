@@ -84,7 +84,7 @@ class UserController extends Controller
      * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public static function update(Request $request, User $user)
+    public function update(Request $request, User $user)
     {
         request()->validate(User::$rules);
 
