@@ -33,7 +33,7 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo Electrónico') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Usuario') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -74,8 +74,13 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
+<<<<<<< HEAD
                                     <button type="submit" class="btn btn-success">
                                         {{ __('¡Acceder!') }}
+=======
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Ingresar!') }}
+>>>>>>> 0b4f89f84b394d413f62d8683538e11ed4a8a07c
                                     </button>
                                         <br>
                                     @if (Route::has('password.request'))
