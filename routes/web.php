@@ -29,10 +29,16 @@ Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('h
 Route::resource('users', UserController::class);
 Route::resource('t-penalidads', TPenalidadController::class);
 Route::get('/hojacontrolds', [HojacontroldController::class, 'index'])->name('hojacontrolds.index');
+Route::get('/t-penalidads', [HojacontroldController::class, 'index'])->name('t-penalidads.index');
 Route::get('/hojacontrolds/create', [HojacontroldController::class, 'create'])->name('hojacontrolds.create');
 Route::delete('/hojacontrolds/{id}', [HojacontroldController::class, 'destroy'])->name('hojacontrolds.destroy');
 Route::get('/hojacontrolds/{id}', [HojacontroldController::class, 'show'])->name('hojacontrolds.show');
 Route::get('/hojacontrolds/{id}/edit', [HojacontroldController::class, 'edit'])->name('hojacontrolds.edit');
+Route::get('/t-penalidads/create', [HojacontroldController::class, 'create'])->name('t-penalidads.create');
+Route::delete('/t-penalidads/{id}', [HojacontroldController::class, 'destroy'])->name('t-penalidads.destroy');
+Route::get('/t-penalidads/{id}', [HojacontroldController::class, 'show'])->name('t-penalidads.show');
+Route::get('/t-penalidads/{id}/edit', [HojacontroldController::class, 'edit'])->name('t-penalidads.edit');
+
 
 
 

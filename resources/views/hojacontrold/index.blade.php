@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Tierra Papeles</th>
 										<th>Embolsado Residuos</th>
 										<th>Nivel Ejecucion</th>
@@ -55,7 +55,7 @@
                                     @foreach ($hojacontrolds as $hojacontrold)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $hojacontrold->tierra_papeles }}</td>
 											<td>{{ $hojacontrold->embolsado_residuos }}</td>
 											<td>{{ $hojacontrold->nivel_ejecucion }}</td>
