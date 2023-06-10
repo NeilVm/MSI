@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $personal_iden
  * @property $epp
  * @property $cobertura_ser
+ * @property $usu
  * @property $created_at
  * @property $updated_at
  *
@@ -38,6 +39,7 @@ class Hojacontrold extends Model
 		'personal_iden' => 'required',
 		'epp' => 'required',
 		'cobertura_ser' => 'required',
+		'usu' => 'required',
     ];
 
     protected $perPage = 20;
@@ -47,7 +49,7 @@ class Hojacontrold extends Model
      *
      * @var array
      */
-    protected $fillable = ['tierra_papeles','embolsado_residuos','nivel_ejecucion','uso_apro_uni','uniforme','herramientas','personal_comp','personal_iden','epp','cobertura_ser'];
+    protected $fillable = ['tierra_papeles','embolsado_residuos','nivel_ejecucion','uso_apro_uni','uniforme','herramientas','personal_comp','personal_iden','epp','cobertura_ser','usu'];
 
 
 

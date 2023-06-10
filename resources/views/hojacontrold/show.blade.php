@@ -60,6 +60,10 @@
                             <strong>Cobertura Ser:</strong>
                             {{ $hojacontrold->cobertura_ser }}
                         </div>
+                        <div class="form-group">
+                            <strong>Usu:</strong>
+                            {{ $hojacontrold->usu }}
+                        </div>
 
                     </div>
                 </div>

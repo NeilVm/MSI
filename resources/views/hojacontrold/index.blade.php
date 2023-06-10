@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Hoja Control Diario') }}
+                                {{ __('Hojacontrold') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('hojacontrolds.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Nuevo') }}
+                                  {{ __('Create New') }}
                                 </a>
                               </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-
+                                        
 										<th>Tierra Papeles</th>
 										<th>Embolsado Residuos</th>
 										<th>Nivel Ejecucion</th>
@@ -46,6 +46,7 @@
 										<th>Personal Iden</th>
 										<th>Epp</th>
 										<th>Cobertura Ser</th>
+										<th>Usu</th>
 
                                         <th></th>
                                     </tr>
@@ -54,7 +55,7 @@
                                     @foreach ($hojacontrolds as $hojacontrold)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-
+                                            
 											<td>{{ $hojacontrold->tierra_papeles }}</td>
 											<td>{{ $hojacontrold->embolsado_residuos }}</td>
 											<td>{{ $hojacontrold->nivel_ejecucion }}</td>
@@ -65,14 +66,15 @@
 											<td>{{ $hojacontrold->personal_iden }}</td>
 											<td>{{ $hojacontrold->epp }}</td>
 											<td>{{ $hojacontrold->cobertura_ser }}</td>
+											<td>{{ $hojacontrold->usu }}</td>
 
                                             <td>
                                                 <form action="{{ route('hojacontrolds.destroy',$hojacontrold->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('hojacontrolds.show',$hojacontrold->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Detalles') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('hojacontrolds.edit',$hojacontrold->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('hojacontrolds.show',$hojacontrold->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('hojacontrolds.edit',$hojacontrold->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

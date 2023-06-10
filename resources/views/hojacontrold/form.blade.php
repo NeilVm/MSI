@@ -51,6 +51,11 @@
             {{ Form::text('cobertura_ser', $hojacontrold->cobertura_ser, ['class' => 'form-control' . ($errors->has('cobertura_ser') ? ' is-invalid' : ''), 'placeholder' => 'Cobertura Ser']) }}
             {!! $errors->first('cobertura_ser', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('usu') }}
+            {{ Form::text('usu', $hojacontrold->usu, ['class' => 'form-control' . ($errors->has('usu') ? ' is-invalid' : ''), 'placeholder' => 'Usu']) }}
+            {!! $errors->first('usu', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
     </div>
     <div class="box-footer mt20">
