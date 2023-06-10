@@ -25,9 +25,16 @@ Route::get('/css/login.css', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
-Route::resource('hojacontrolds', HojacontroldController::class);
+//Route::resource('hojacontrolds', HojacontroldController::class);
 Route::resource('users', UserController::class);
 Route::resource('t-penalidads', TPenalidadController::class);
+Route::get('/hojacontrolds', [HojacontroldController::class, 'index'])->name('hojacontrolds.index');
+Route::get('/hojacontrolds/create', [HojacontroldController::class, 'create'])->name('hojacontrolds.create');
+Route::delete('/hojacontrolds/{id}', [HojacontroldController::class, 'destroy'])->name('hojacontrolds.destroy');
+Route::get('/hojacontrolds/{id}', [HojacontroldController::class, 'show'])->name('hojacontrolds.show');
+Route::get('/hojacontrolds/{id}/edit', [HojacontroldController::class, 'edit'])->name('hojacontrolds.edit');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
