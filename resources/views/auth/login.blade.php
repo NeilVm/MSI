@@ -74,15 +74,10 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-<<<<<<< HEAD
+                                <div class="col-md-6 offset-md-6">
                                     <button type="submit" class="btn btn-success">
                                         {{ __('¡Acceder!') }}
-=======
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Ingresar!') }}
->>>>>>> 0b4f89f84b394d413f62d8683538e11ed4a8a07c
-                                    </button>
-                                        <br>
+                                    </div>
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('¿Olvidaste tu contraseña?') }}
