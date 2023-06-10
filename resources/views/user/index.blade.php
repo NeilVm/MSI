@@ -17,8 +17,8 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                <a href="{{ route('register') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Registrar Usuario') }}
                                 </a>
                               </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Name</th>
 										<th>Email</th>
 										<th>Usertype</th>
@@ -47,7 +47,7 @@
                                     @foreach ($users as $user)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $user->name }}</td>
 											<td>{{ $user->email }}</td>
 											<td>{{ $user->usertype }}</td>

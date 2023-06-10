@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Direccion</th>
 										<th>Distrito</th>
 										<th>Referencia</th>
@@ -63,7 +63,7 @@
                                     @foreach ($tPenalidads as $tPenalidad)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $tPenalidad->Direccion }}</td>
 											<td>{{ $tPenalidad->Distrito }}</td>
 											<td>{{ $tPenalidad->Referencia }}</td>

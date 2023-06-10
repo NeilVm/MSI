@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\t_penalidad;
 use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
@@ -16,7 +17,13 @@ class HomeController extends Controller
 
             if($usertype=='user'){
 
-                return view('home');
+                {
+                    $tPenalidads = t_penalidad::paginate();
+
+                    return view('home', compact('tPenalidads'))
+                        ->with('i', (request()->input('page', 1) - 1) * $tPenalidads->perPage());
+                }
+
 
             } else if($usertype=='admin'){
 
