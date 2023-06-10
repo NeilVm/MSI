@@ -5,9 +5,12 @@ body {
     background-position: fixed;
     background-repeat: no-repeat;
 
+
 }
 #login-container {
-    background-color: transparent !important;
+    max-width: 1000px;
+    width: 200%;
+    padding: 8%;
 }
 
 .card-header {
