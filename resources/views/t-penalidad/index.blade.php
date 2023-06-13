@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    T Penalidad
+    Penalidad
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('T Penalidad') }}
+                                {{ __('Penalidad') }}
                             </span>
 
 

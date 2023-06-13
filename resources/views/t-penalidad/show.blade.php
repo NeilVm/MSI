@@ -14,12 +14,12 @@
                             <span class="card-title">{{ __('Show') }} T Penalidad</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('t-penalidads.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('t-penalidads.index') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>Direccion:</strong>
                             {{ $tPenalidad->Direccion }}
