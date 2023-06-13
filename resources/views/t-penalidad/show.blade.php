@@ -96,7 +96,9 @@
                             <strong>Usu:</strong>
                             {{ $tPenalidad->usu }}
                         </div>
-
+                        <div >
+                            <img src="https://firebasestorage.googleapis.com/v0/b/msis-d2976.appspot.com/o/IMG_20230613_155319.jpg?alt=media&token=94865a39-434d-4196-aac0-a48f471054f8" class="img-thumbnail" alt="...">
+                        </div>
                     </div>
                 </div>
             </div>
